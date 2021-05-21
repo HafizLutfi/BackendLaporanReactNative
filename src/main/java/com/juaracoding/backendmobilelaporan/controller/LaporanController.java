@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.juaracoding.backendmobilelaporan.entity.Laporan;
+import com.juaracoding.backendmobilelaporan.entity.User;
 import com.juaracoding.backendmobilelaporan.respository.LaporanRespository;
 
 @RestController
@@ -30,5 +32,10 @@ public class LaporanController {
 	public String addLaporan(@RequestBody Laporan laporan) {
 		laporanRepo.save(laporan);
 		return"Laporan Anda berhasil disimpan";
+	}
+		
+	@GetMapping("/find/{username}")
+	public List<Laporan> getAllByUsername(@PathVariable String username){
+		return (List<Laporan>) laporanRepo.findAllByUsername(username);
 	}
 }

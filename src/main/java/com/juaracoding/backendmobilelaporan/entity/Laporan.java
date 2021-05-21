@@ -1,5 +1,8 @@
 package com.juaracoding.backendmobilelaporan.entity;
 
+import java.sql.Date;
+import java.sql.Time;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,4 +35,5 @@ public class Laporan {
 	private double latitude;
 	private double longitude;
 	private String time;
+	private String username;
 }
